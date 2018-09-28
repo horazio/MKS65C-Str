@@ -3,3 +3,5 @@ all : str.o
 
 str.o: str.c str.h
 	gcc -c str.c
+run:
+	./a.out
