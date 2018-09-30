@@ -61,38 +61,40 @@ char * mystrstr( char *s1, char * s2 ){
 void test(char * s1, char * s2, int i, char c, char * s3, char *s4, char *s5){
 
   printf("################## NEW TEST ####################\n\n\n");
-  printf("-------Testing strlen-------\n");
+  printf("-------Testing strlen(%s)-------\n",s1);
   printf("[OURS]      : %d\n", mystrlen(s1));
   printf("[STANDARD]  : %ld\n\n", strlen(s1));
+  printf("-------  strlen(%s ) -------\n",s2);
   printf("[OURS]      : %d\n", mystrlen(s2));
   printf("[STANDARD]  : %ld\n\n", strlen(s2));
 
 
-  printf("-------Testing strchr-------\n");
-  printf("[OURS]      : %p\n\n", mystrchr(s3, c));
-  printf("[STANDARD]  : %p\n", strchr(s3, c));
+  printf("-------Testing strchr(%s, %c)-------\n",s3, c);
+  printf("[OURS]      : %p\n", mystrchr(s3, c));
+  printf("[STANDARD]  : %p\n\n", strchr(s3, c));
 
 
-  printf("-------Testing strncat-------\n");
+  printf("-------Testing strncat(%s, %s, %d)-------\n",s1,s2, i);
   printf("[OURS]      : %s\n", mystrncat(s5, s2, i));
-  printf("[STANDARD]  : %s\n", strncat(s1, s2, i));
+  printf("[STANDARD]  : %s\n\n", strncat(s1, s2, i));
 
 
-  printf("-------Testing strcmp-------\n");
+  printf("-------Testing strcmp(%s, %s)-------\n",s1,s2);
   printf("[OURS]      : %d\n", mystrcmp(s1 ,s2));
-  printf("[OURS]      : %d\n\n", mystrcmp(s2,s1));
-  printf("[STANDARD]  : %d\n", strcmp(s1,s2));
-  printf("[STANDARD]  : %d\n", strcmp(s2,s1));
+  printf("[STANDARD]  : %d\n\n", strcmp(s1,s2));
+  printf("-------Testing strcmp(%s, %s)-------\n",s2,s1);
+  printf("[OURS]      : %d\n", mystrcmp(s2,s1));
+  printf("[STANDARD]  : %d\n\n", strcmp(s2,s1));
 
 
-  printf("-------Testing strncpy-------\n");
+  printf("-------Testing strncpy(%s,%s,%d)-------\n", s1,s2,i);
   printf("[OURS]      : %s\n", mystrncpy(s1, s2, i));
-  printf("[STANDARD]  : %s\n", strncpy(s1, s2, i));
+  printf("[STANDARD]  : %s\n\n", strncpy(s1, s2, i));
 
 
-  printf("-------Testing strstr-------\n");
+  printf("-------Testing strstr(%s,%s)-------\n",s3,s4);
   printf("[OURS]      : %s\n", mystrstr(s3, s4));
-  printf("[STANDARD]  : %s\n", strstr(s3, s4));
+  printf("[STANDARD]  : %s\n\n", strstr(s3, s4));
 
   printf("\n\n");
 }
