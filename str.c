@@ -7,10 +7,9 @@ int mystrlen( char * str ){
 }
 
 char * mystrncpy(char * dest, char * orig, int n){
-  char * p = orig;
-  char * p2 = dest;
-  while(p - orig - n){
-    *(p2++) = *(p++);
+  int c = 0;
+  while(c++ < n){
+    *(dest + c) = *(orig + c);
   }
   return dest;
 }
@@ -18,11 +17,13 @@ char * mystrncpy(char * dest, char * orig, int n){
 
 
 int main(){
-  char s1[10] = "";
-  char * s2 = "wo";
-  int i = 30;
+  char s1[10] = "df";
+  char * s2 = "wofasdfasdfasdfasdfasdfasdfasdfasdfo";
+  int i = 20;
+
+  printf("%s \n", strncpy(s1,s2,i));
   
-  printf("strlen says: %ld, mystrlen says: %d \n", strlen(s1), mystrlen(s1));
+  // printf("strlen says: %ld, mystrlen says: %d \n", strlen(s1), mystrlen(s1));
   //printf("strncpy says: %s, mystrncpy says: %s \n", strncpy(s1, s2, i), mystrncpy(s1, s2, i));
   
   return 0;
