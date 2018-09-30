@@ -41,24 +41,24 @@ int mystrcmp( char *s1, char *s2 ){
    return 0;
 }
 
-
-int main(){
-  char s1[10] = "qwe";
-  char * s2 = "qwertyuiop";
-  int i = 4;
-  char c = '3';
-
-  //printf("%s \n", strncpy(s1,s2,i));
+void test(char * s1, char * s2, int i, char c){
   
-  //printf("strlen says: %ld, mystrlen says: %d \n", strlen(s1), mystrlen(s1));
-  //printf("strncpy says: %s, mystrncpy says: %s \n", strncpy(s1, s2, i), mystrncpy(s1, s2, i));
-  //printf("strncat says: %s, mystrncat says: %s \n", strncat(s1, s2, i), mystrncat(s1, s2, i));
-  //printf("strchr says: %p, mystrchr says: %p  \n", strchr(s2, c), mystrchr(s2, c));
-
+  
   printf("-------Testing strlen-------\n");
   printf("s1 mystrlen size: %d\n", mystrlen(s1));
-  printf("s1 strlen size  : %d\n", strlen(s1));
+  printf("s1 strlen size  : %ld\n\n", strlen(s1));
 
+  
+  printf("-------Testing strncat-------\n");
+  printf("strncat : %s\n", strncat(s1, s2, i));
+  printf("mystrncat : %s\n", mystrncat(s1, s2, i));
+
+
+  printf("-------Testing strchr-------\n");
+  printf("strchr : %p\n", strchr(s1, c));
+  printf("mystrchr : %p\n", mystrchr(s1, c));
+
+  
   printf("-------Testing strcmp-------\n");
   printf("strcmp   : %d\n", strcmp(s1,s2));
   printf("strcmp   : %d\n", strcmp(s2,s1));
@@ -66,10 +66,20 @@ int main(){
   printf("mystrcmp : %d\n", mystrcmp(s2,s1));
 
   printf("-------Testing strncpy-------\n");
-  printf("mystrncpy(should be worlo) : %s\n", mystrncpy(s1, s2, 4));
-  char s3[10] = "hello";
-  printf("strncpy  (should be worlo) : %s\n", strncpy(s3, s2, 4));
+  printf("mystrncpy : %s\n", mystrncpy(s1, s2, i));
+  printf("strncpy   : %s\n", strncpy(s1, s2, i));
 
+  printf("\n\n");
+}
+
+
+int main(){
+  
+  test("asdfg", "1234", 4, '4');
+test("as", "1234", 2, 'f');
+test("asdfg", "1234", 1, 'a');
+test("afsaddfg", "1234adfad", 12, '4');
+test("asdfg", "", 4, '4');
 
 
   
