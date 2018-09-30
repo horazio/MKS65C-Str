@@ -14,6 +14,16 @@ char * mystrncpy(char * dest, char * orig, int n){
   return dest;
 }
 
+char * mystrncat( char *dest, char *source, int n){
+  int c = 0;
+  int l = mystrlen(dest);
+  while(c++ < n){
+    *(dest + c + l) = *(orig + c);
+  }
+  return dest;
+}
+
+
 
 int main(){
   char s1[10] = "qwertyuiop";
@@ -23,7 +33,8 @@ int main(){
   //printf("%s \n", strncpy(s1,s2,i));
   
   //printf("strlen says: %ld, mystrlen says: %d \n", strlen(s1), mystrlen(s1));
-  printf("strncpy says: %s, mystrncpy says: %s \n", strncpy(s1, s2, i), mystrncpy(s1, s2, i));
-  
+  // printf("strncpy says: %s, mystrncpy says: %s \n", strncpy(s1, s2, i), mystrncpy(s1, s2, i));
+  printf("strncat says: %s, mystrncat says: %s \n", strncat(s1, s2, i), mystrncat(s1, s2, i));
+
   return 0;
 }
