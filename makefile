@@ -1,4 +1,4 @@
-all : str.o
+compile : str.o
 	gcc str.o
 
 run:

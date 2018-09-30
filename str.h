@@ -1,4 +1,4 @@
-int mystrlen( char * );
+int mystrlen( char * str);
 
 char * mystrncpy( char *dest, char *source, int n);
 

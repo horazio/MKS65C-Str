@@ -7,31 +7,31 @@ int mystrlen( char * str ){
 }
 
 char * mystrncpy(char * dest, char * orig, int n){
-  int c = 0;
-  while(c < n){
-    *(dest + c) = *(orig + c);
-    c++;
+  int byteCount = 0;
+  while(byteCount < n){
+    *(dest + byteCount) = *(orig + byteCount);
+    byteCount++;
   }
   return dest;
 }
 
 char * mystrncat( char * dest, char * orig, int n){
-  int c = 0;
-  int l = mystrlen(dest);
-  while(c++ < n){
-    *(dest + c + l) = *(orig + c);
+  int byteCount = 0;
+  int destLen = mystrlen(dest);
+  while(byteCount++ < n){
+    *(dest + byteCount + destLen) = *(orig + byteCount);
   }
-  *(dest + c + l) = 0;
+  *(dest + byteCount + destLen) = 0;
   return dest;
 }
 
 char * mystrchr( char *s, char c ){
   while(*(s++)){
-    if(*(s) == c){
+    if(*s == c){
       return s;
     }
   }
-  return 0; 
+  return 0;
 }
 
 int mystrcmp( char *s1, char *s2 ){
@@ -43,23 +43,23 @@ int mystrcmp( char *s1, char *s2 ){
 }
 
 void test(char * s1, char * s2, int i, char c){
-  
-  
+
+
   printf("-------Testing strlen-------\n");
   printf("s1 mystrlen size: %d\n", mystrlen(s1));
   printf("s1 strlen size  : %ld\n\n", strlen(s1));
 
 
   printf("-------Testing strchr-------\n");
-  printf("strchr : %p\n", strchr(s1, c));
+  printf("strchr   : %p\n", strchr(s1, c));
   printf("mystrchr : %p\n\n", mystrchr(s1, c));
 
-  
+
   printf("-------Testing strncat-------\n");
-  printf("strncat : %s\n", strncat(s1, s2, i));
+  printf("strncat   : %s\n", strncat(s1, s2, i));
   printf("mystrncat : %s\n\n", mystrncat(s1, s2, i));
 
-  
+
   printf("-------Testing strcmp-------\n");
   printf("strcmp   : %d\n", strcmp(s1,s2));
   printf("strcmp   : %d\n", strcmp(s2,s1));
