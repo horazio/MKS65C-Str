@@ -15,16 +15,15 @@ char * mystrncpy(char * dest, char * orig, int n){
 }
 
 
-
 int main(){
-  char s1[10] = "df";
-  char * s2 = "wofasdfasdfasdfasdfasdfasdfasdfasdfo";
-  int i = 20;
+  char s1[10] = "qwertyuiop";
+  char * s2 = "123";
+  int i = 4;
 
-  printf("%s \n", strncpy(s1,s2,i));
+  //printf("%s \n", strncpy(s1,s2,i));
   
-  // printf("strlen says: %ld, mystrlen says: %d \n", strlen(s1), mystrlen(s1));
-  //printf("strncpy says: %s, mystrncpy says: %s \n", strncpy(s1, s2, i), mystrncpy(s1, s2, i));
+  //printf("strlen says: %ld, mystrlen says: %d \n", strlen(s1), mystrlen(s1));
+  printf("strncpy says: %s, mystrncpy says: %s \n", strncpy(s1, s2, i), mystrncpy(s1, s2, i));
   
   return 0;
 }
