@@ -8,8 +8,9 @@ int mystrlen( char * str ){
 
 char * mystrncpy(char * dest, char * orig, int n){
   int c = 0;
-  while(c++ < n){
+  while(c < n){
     *(dest + c) = *(orig + c);
+    c++;
   }
   return dest;
 }
@@ -48,22 +49,22 @@ void test(char * s1, char * s2, int i, char c){
   printf("s1 mystrlen size: %d\n", mystrlen(s1));
   printf("s1 strlen size  : %ld\n\n", strlen(s1));
 
-  
-  printf("-------Testing strncat-------\n");
-  printf("strncat : %s\n", strncat(s1, s2, i));
-  printf("mystrncat : %s\n", mystrncat(s1, s2, i));
-
 
   printf("-------Testing strchr-------\n");
   printf("strchr : %p\n", strchr(s1, c));
-  printf("mystrchr : %p\n", mystrchr(s1, c));
+  printf("mystrchr : %p\n\n", mystrchr(s1, c));
+
+  
+  printf("-------Testing strncat-------\n");
+  printf("strncat : %s\n", strncat(s1, s2, i));
+  printf("mystrncat : %s\n\n", mystrncat(s1, s2, i));
 
   
   printf("-------Testing strcmp-------\n");
   printf("strcmp   : %d\n", strcmp(s1,s2));
   printf("strcmp   : %d\n", strcmp(s2,s1));
   printf("mystrcmp : %d\n", mystrcmp(s1 ,s2));
-  printf("mystrcmp : %d\n", mystrcmp(s2,s1));
+  printf("mystrcmp : %d\n\n", mystrcmp(s2,s1));
 
   printf("-------Testing strncpy-------\n");
   printf("mystrncpy : %s\n", mystrncpy(s1, s2, i));
@@ -74,14 +75,17 @@ void test(char * s1, char * s2, int i, char c){
 
 
 int main(){
-  
-  test("asdfg", "1234", 4, '4');
-test("as", "1234", 2, 'f');
-test("asdfg", "1234", 1, 'a');
-test("afsaddfg", "1234adfad", 12, '4');
-test("asdfg", "", 4, '4');
+  char s1[10] = "asdf";
+  test(s1, "1234", 2, '4');
 
+  char s2[10] = "te13st";
+  test(s2, "12d4", 2, 'f');
 
-  
+  char s3[20] = "te23fst";
+  test(s3, "1da4", 4, 'e');
+
+  char s4[10] = "te";
+  test(s4, "12dd4", 6, '4');
+
   return 0;
 }
